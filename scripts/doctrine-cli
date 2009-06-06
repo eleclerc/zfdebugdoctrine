@@ -1,0 +1,10 @@
+#!/usr/bin/env php
+<?php
+define('APPLICATION_ENV', 'development');
+
+require realpath(dirname(__FILE__) . '/../application/cli_bootstrap.php');
+
+$application->bootstrap('doctrine');
+
+$cli = new Doctrine_Cli($application->getOption('doctrine'));
+$cli->run($_SERVER['argv']);

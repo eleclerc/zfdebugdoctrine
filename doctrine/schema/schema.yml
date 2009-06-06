@@ -1,0 +1,13 @@
+---
+Post:
+    actAs:
+        Timestampable:
+    columns:
+        id:
+            primary: true
+            autoincrement: true
+            type: integer(4)
+        author:
+            type: string(255)
+        content:
+            type: string
