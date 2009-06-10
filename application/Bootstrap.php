@@ -9,9 +9,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $loader = Zend_Loader_Autoloader::getInstance();
         
         require_once 'Doctrine.php';
-        $loader->pushAutoloader(array('Doctrine', 'autoload'), 'Doctrine');
+        $loader->pushAutoloader(array('Doctrine', 'autoload'));
 
         $manager = Doctrine_Manager::getInstance();
+        $manager->setAttribute(Doctrine::ATTR_MODEL_LOADING, Doctrine::MODEL_LOADING_CONSERVATIVE);
         
         // Creating 2 named connections, to test ZFDebug doctrine plugin
         $manager->openConnection($doctrineConfig['connection_string'], 'one');
