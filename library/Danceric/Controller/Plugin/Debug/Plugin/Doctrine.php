@@ -19,7 +19,7 @@ class Danceric_Controller_Plugin_Debug_Plugin_Doctrine extends ZFDebug_Controlle
      *
      * @var string
      */
-    protected $_identifier = 'doctrine';
+    protected $_identifier = 'database';
 
     /**
      * @var array Doctrine connection profiler that will listen to events
@@ -93,17 +93,20 @@ class Danceric_Controller_Plugin_Debug_Plugin_Doctrine extends ZFDebug_Controlle
         foreach ($this->_profilers as $name => $profiler) {
                 $html .= '<h4>Connection '.$name.'</h4><ol>';
                 foreach ($profiler as $event) {
-                    if ($event->getName() == 'query' || $event->getName() == 'execute') {
-                        $query = $event->getQuery();
+                    if (in_array($event->getName(), array('query', 'execute', 'exec'))) {
+                        $info = htmlspecialchars($event->getQuery());
                     } else {
-                        $query = $event->getName();
+                        $info = '<em>' . htmlspecialchars($event->getName()) . '</em>';
                     }
+
                     $html .= '<li><strong>[' . round($event->getElapsedSecs()*1000, 2) . ' ms]</strong> ';
-                    $html .= htmlspecialchars($query) . "</li>";
+                    $html .= $info;
+                
                     $params = $event->getParams();
-                    if( ! empty($params)) {
-                        $html .= print_r($params, 1);
+                    if(!empty($params)) {
+                        $html .= '<ul><em>bindings:</em> <li>'. implode('</li><li>', $params) . '</li></ul>';
                     }
+                    $html .= '</li>';
                 }
                 $html .= '</ol>';
         }
