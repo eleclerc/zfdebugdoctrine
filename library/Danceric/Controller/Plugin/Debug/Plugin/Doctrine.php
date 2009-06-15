@@ -19,7 +19,7 @@ class Danceric_Controller_Plugin_Debug_Plugin_Doctrine extends ZFDebug_Controlle
      *
      * @var string
      */
-    protected $_identifier = 'database';
+    protected $_identifier = 'doctrine';
 
     /**
      * @var array Doctrine connection profiler that will listen to events
