@@ -2,7 +2,7 @@
 
 This is a proof of concept to have Doctrine data in a ZFDebug panel. My Doctrine plugin for ZFDebug is:
   
-  library/Danceric/Controller/Plugin/Debug/Plugin/Doctrine.php 
+    library/Danceric/Controller/Plugin/Debug/Plugin/Doctrine.php 
 
 To try this demo project, you need to put these libs in the `library` folder
 
