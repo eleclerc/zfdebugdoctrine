@@ -1,21 +1,20 @@
 # Doctrine ORM with Zend Framedwork and ZFDebug
 
-This is a proof of concept to have Doctrine data in a ZFDebug panel. My Doctrine plugin for ZFDebug is:
+This is a proof of concept to have Doctrine data in a ZFDebug panel. My Doctrine plugin for ZFDebug is at:
   
     library/Danceric/Controller/Plugin/Debug/Plugin/Doctrine.php 
 
-To try this demo project, you need to put these libs in the `library` folder
+To try this demo project, you need to put these libs in the `library` folder (or in your php include path)
 
-- [Zend Framework](http://framework.zend.com/) 1.8.x
+- [Zend Framework](http://framework.zend.com/) 1.9.x
 - [ZFDebug](http://code.google.com/p/zfdebug/) 1.5.x
-- [Doctrine](http://www.doctrine-project.org/) 1.1.x
+- [Doctrine](http://www.doctrine-project.org/) 1.2.x
 
 It should look like:
 
     library/
       Danceric/
       Doctrine/
-      Doctrine.php
       ZFDebug/
       Zend/
 

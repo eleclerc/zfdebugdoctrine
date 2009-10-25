@@ -2,25 +2,29 @@
 
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
+	/**
+     * Autoload stuff from the default module (which is not in a `modules` subfolder in this project)
+     * (Api_, Form_, Model_, Model_DbTable, Plugin_)
+     * */
+    protected function _initAutoload()
+    {
+        $moduleLoader = new Zend_Application_Module_Autoloader(array(
+            'namespace' => '',
+            'basePath'  => APPLICATION_PATH));
+
+        return $moduleLoader;
+    }
+
     public function _initDoctrine()
     {
         $doctrineConfig = $this->getOption('doctrine');
-            
-        $loader = Zend_Loader_Autoloader::getInstance();
-        
-        require_once 'Doctrine.php';
-        $loader->pushAutoloader(array('Doctrine', 'autoload'));
 
         $manager = Doctrine_Manager::getInstance();
-        $manager->setAttribute(Doctrine::ATTR_MODEL_LOADING, Doctrine::MODEL_LOADING_CONSERVATIVE);
         
         // Creating 2 named connections, to test ZFDebug doctrine plugin
         $manager->openConnection($doctrineConfig['connection_string'], 'one');
         $manager->openConnection($doctrineConfig['connection_string'], 'two');
                 
-        // Add model and generated base class to doctrine autoloader
-        Doctrine::loadModels($doctrineConfig['models_path']);
-        
         return $manager;
     }
     
@@ -39,8 +43,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $this->bootstrap('Doctrine');
         $doctrine = $this->getResource('Doctrine');
 
+		// not in the .ini because we don't always need it
         $autoloader = Zend_Loader_Autoloader::getInstance();
-        $autoloader->registerNamespace('ZFDebug');
+        $autoloader->registerNamespace('ZFDebug_');
 
         $options = array(
             'plugins' => array('Variables',
