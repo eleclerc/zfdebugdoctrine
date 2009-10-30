@@ -24,5 +24,6 @@ If you use the sqlite database, make sure that it is readable/writable by the we
 
 For more information, see these blog posts:
 
-- [Doctrine ORM and Zend Framework](http://www.danceric.net/2009/06/06/doctrine-orm-and-zend-framework/)
-- [ZFDebug and Doctrine ORM](http://www.danceric.net/2009/06/06/zfdebug-and-doctrine-orm)
+- [Doctrine 1.2 is Zend Framework friendly](http://www.danceric.net/2009/10/29/doctrine-1-2-is-zend-framework-friendly/)
+- [Doctrine ORM (1.1) and Zend Framework](http://www.danceric.net/2009/06/06/doctrine-orm-and-zend-framework/)
+- [ZFDebug (1.5) and Doctrine ORM (1.1)](http://www.danceric.net/2009/06/06/zfdebug-and-doctrine-orm)
