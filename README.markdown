@@ -8,13 +8,14 @@ To try this demo project, you need to put these libs in the `library` folder (or
 
 - [Zend Framework](http://framework.zend.com/) 1.9.x
 - [ZFDebug](http://code.google.com/p/zfdebug/) 1.5.x
-- [Doctrine](http://www.doctrine-project.org/) 1.2.x
+- [Doctrine](http://www.doctrine-project.org/) (Doctrine AND vendor folder) 1.2.x
 
 It should look like:
 
     library/
       Danceric/
       Doctrine/
+      vendor/
       ZFDebug/
       Zend/
 
