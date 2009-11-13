@@ -1,5 +1,5 @@
 ---
-Post:
+Model_Post:
   first:
     author: danceric
     content: foo does not always preceed bar
