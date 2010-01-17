@@ -42,7 +42,7 @@ class Danceric_Controller_Plugin_Debug_Plugin_Doctrine extends ZFDebug_Controlle
 
         foreach ($options['manager']->getIterator() as $connection) {
             $this->_profilers[$connection->getName()] = new Doctrine_Connection_Profiler();
-            $connection->setListener($this->_profilers[$connection->getName()]);
+            $connection->addListener($this->_profilers[$connection->getName()]);
         }
     }
 
