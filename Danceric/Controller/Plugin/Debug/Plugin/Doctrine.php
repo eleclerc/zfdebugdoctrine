@@ -2,6 +2,19 @@
 /**
  * ZFDebug Doctrine ORM plugin
  *
+ * Enable it at the configuration step of ZFDebug 
+ * (http://code.google.com/p/zfdebug/wiki/Installation)
+ * Example:
+ *     $options = array(
+ *         'plugins' => array('Variables',
+ *             'Danceric_Controller_Plugin_Debug_Plugin_Doctrine',
+ *             'File',
+ *             'Memory',
+ *             'Time',
+ *             'Exception'),
+ *     );
+ *     $debug = new ZFDebug_Controller_Plugin_Debug($options);
+ * 
  * @category   Danceric
  * @package    Danceric_Controller
  * @subpackage Plugins

@@ -1,9 +1,0 @@
----
-Model_Post:
-  first:
-    author: danceric
-    content: foo does not always preceed bar
-  second:
-    author: john doe
-    content: changeme
-

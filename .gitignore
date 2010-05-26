@@ -1,4 +1,2 @@
-library/Zend
-library/Doctrine
-library/Doctrine.php
-library/ZFDebug
+# OS Specific files
+.DS_Store

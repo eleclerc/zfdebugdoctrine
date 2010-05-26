@@ -1,30 +1,27 @@
-# Doctrine ORM with Zend Framedwork and ZFDebug
+*as of 2010-05-26, all the stuff about integrating Doctrine and Zend Framework have been removed as there is now a semi-official ZFDoctrine project, see the [announcement](http://zend-framework-community.634137.n4.nabble.com/Release-of-the-ZF-Doctrine-1-Integration-tp2227907p2227907.html)*
 
-This is a proof of concept to have Doctrine data in a ZFDebug panel. My Doctrine plugin for ZFDebug is at:
-  
-    library/Danceric/Controller/Plugin/Debug/Plugin/Doctrine.php 
+# Doctrine panel for ZFDebug
 
-To try this demo project, you need to put these libs in the `library` folder (or in your php include path)
+This is a proof of concept to have Doctrine data in a ZFDebug panel for Zend Framework. 
 
-- [Zend Framework](http://framework.zend.com/) 1.9.x
-- [ZFDebug](http://code.google.com/p/zfdebug/) 1.5.x
-- [Doctrine](http://www.doctrine-project.org/) (Doctrine AND vendor folder) 1.2.x
+## Usage
 
-It should look like:
+You have to put `Danceric` folder in you `library` folder (if you're using the default ZF layout)
+and enable it at the 
+[configuration step] (http://code.google.com/p/zfdebug/wiki/Installation) of [ZFDebug](http://code.google.com/p/zfdebug)
 
-    library/
-      Danceric/
-      Doctrine/
-      vendor/
-      ZFDebug/
-      Zend/
+Example:
 
-If you use the sqlite database, make sure that it is readable/writable by the web server
+    $options = array(
+        'plugins' => array('Variables',
+        'Danceric_Controller_Plugin_Debug_Plugin_Doctrine',
+        'File',
+        'Memory',
+        'Time',
+        'Exception'),
+    );
+    $debug = new ZFDebug_Controller_Plugin_Debug($options);
+    
+## Before the semi-official zf-doctrine
 
-## More about ZF and Doctrine
-
-For more information, see these blog posts:
-
-- [Doctrine 1.2 is Zend Framework friendly](http://www.danceric.net/2009/10/29/doctrine-1-2-is-zend-framework-friendly/)
-- [Doctrine ORM (1.1) and Zend Framework](http://www.danceric.net/2009/06/06/doctrine-orm-and-zend-framework/)
-- [ZFDebug (1.5) and Doctrine ORM (1.1)](http://www.danceric.net/2009/06/06/zfdebug-and-doctrine-orm)
+If you're not using ZFDoctrine for any reason, you might want to see my sample project by looking at the [zfdebugdoctrine/Doctrine-1.2-beta](http://github.com/danceric/zfdebugdoctrine/tree/Doctrine-1.2-beta) tag. Keep in mind that it is not the supported way anymore though.
