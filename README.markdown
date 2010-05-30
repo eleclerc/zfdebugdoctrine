@@ -8,9 +8,9 @@ This is a proof of concept to have the Doctrine profiler info on a [ZFDebug](htt
 
 You have to put the `Danceric` folder in you `library` folder (if you're using the default ZF layout)
 and enable it in your bootstrap. 
-See [Installation Instructions] (http://code.google.com/p/zfdebug/wiki/Installation) on the ZFDebug website
+See [Installation Instructions](http://code.google.com/p/zfdebug/wiki/Installation) on the ZFDebug website
 
-Example:
+Example (in Bootstrap.php):
 
     protected function _initZFDebug()
     {
