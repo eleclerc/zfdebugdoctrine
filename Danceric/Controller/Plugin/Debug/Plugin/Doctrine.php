@@ -104,7 +104,7 @@ class Danceric_Controller_Plugin_Debug_Plugin_Doctrine extends ZFDebug_Controlle
         $html = '<h4>Database queries</h4>';
         
         foreach ($this->_profilers as $name => $profiler) {
-                $html .= '<h4>Connection '.$name.'</h4><ol>';
+                $html .= '<h4>Connection: '.$name.'</h4><ol>';
                 foreach ($profiler as $event) {
                     if (in_array($event->getName(), array('query', 'execute', 'exec'))) {
                         $info = htmlspecialchars($event->getQuery());
