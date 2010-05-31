@@ -128,7 +128,8 @@ class Danceric_Controller_Plugin_Debug_Plugin_Doctrine extends ZFDebug_Controlle
                 foreach ($profiler as $event) {
                     if (in_array($event->getCode(), $this->getQueryEventCodes())) {
                         $info = htmlspecialchars($event->getQuery());
-
+                        $info = preg_replace('/\b(SELECT|AS|FROM|WHERE|ORDER BY|GROUP BY|LIMIT|ON|LEFT JOIN|JOIN)\b/','<strong>$1</strong>', $info);
+                        
                         $html .= '<li><strong>[' . round($event->getElapsedSecs()*1000, 2) . ' ms]</strong> ';
                         $html .= $info;
                 
