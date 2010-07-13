@@ -135,6 +135,7 @@ class Danceric_Controller_Plugin_Debug_Plugin_Doctrine extends ZFDebug_Controlle
                 
                         $params = $event->getParams();
                         if(!empty($params)) {
+                            $params = array_map('htmlspecialchars', $params);
                             $html .= '<ul><em>bindings:</em> <li>'. implode('</li><li>', $params) . '</li></ul>';
                         }
                         $html .= '</li>';
